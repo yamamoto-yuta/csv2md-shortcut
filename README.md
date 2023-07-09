@@ -1,4 +1,4 @@
-## csv2md-shortcut
+# csv2md-shortcut
 
 テキストエリア上で CSV と Markdown テーブルの相互変換がキーボードショートカットで行えるようになる Chrome 拡張機能。
 
