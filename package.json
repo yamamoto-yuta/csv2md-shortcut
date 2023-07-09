@@ -1,6 +1,6 @@
 {
   "name": "csv2md-shortcut",
-  "displayName": "Csv2md shortcut",
+  "displayName": "CSV2MD Shortcut",
   "version": "0.0.1",
   "description": "Convert CSV to Markdown Table with shortcut keys",
   "author": "root",
