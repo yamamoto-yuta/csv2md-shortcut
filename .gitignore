@@ -42,4 +42,5 @@ keys.json
 .tsbuildinfo
 
 # lock files
-*.lock
+package-lock.json
+yarn.lock
