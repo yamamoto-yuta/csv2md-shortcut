@@ -9,3 +9,7 @@ dev:
 .PHONY: build
 build:
 	docker compose run --rm app npm run build
+
+.PHONY: package
+package:
+	docker compose run --rm app npm run package
