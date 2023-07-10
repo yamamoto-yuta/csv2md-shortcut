@@ -7,6 +7,7 @@
 ```
 $ git@github.com:yamamoto-yuta/csv2md-shortcut.git
 $ cd csv2md-shortcut
+$ make i
 ```
 
 ## 開発

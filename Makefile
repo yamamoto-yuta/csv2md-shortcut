@@ -1,3 +1,7 @@
+.PHONY: i
+i:
+	docker compose run app npm i
+
 .PHONY: dev
 dev:
 	docker compose run app npm run dev
