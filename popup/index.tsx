@@ -15,7 +15,7 @@ function IndexPopup() {
         <Heading color="white">How To Use</Heading>
       </Center>
       <Center>
-        <Box boxSize="lg">
+        <Box>
           <Image src={howToUseImage} alt="Dan Abramov" />
         </Box>
       </Center>
