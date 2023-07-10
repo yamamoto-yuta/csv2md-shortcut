@@ -1,11 +1,11 @@
 .PHONY: i
 i:
-	docker compose run app npm i
+	docker compose run --rm app npm i
 
 .PHONY: dev
 dev:
-	docker compose run app npm run dev
+	docker compose run --rm app npm run dev
 
 .PHONY: build
 build:
-	docker compose run app npm run build
+	docker compose run --rm app npm run build
