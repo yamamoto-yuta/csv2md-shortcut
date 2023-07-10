@@ -27,8 +27,8 @@ const convertMarkdownTableToCSV = (markdown: string): string => {
 };
 
 
-function ToggleSpan() {
-    const [isSpanVisible, setSpanVisible] = useState(false);
+function ToggleToast() {
+    const [isToastVisible, setToastVisible] = useState(false);
 
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -55,11 +55,11 @@ function ToggleSpan() {
                     console.log(convertedText);
 
                     navigator.clipboard.writeText(convertedText);
-                };
-                setSpanVisible(true);
-                setTimeout(() => {
-                    setSpanVisible(false);
-                }, 2000);
+                    setToastVisible(true);
+                    setTimeout(() => {
+                        setToastVisible(false);
+                    }, 2000);
+                }
             }
         };
 
@@ -72,7 +72,7 @@ function ToggleSpan() {
 
     return (
         <div>
-            {isSpanVisible ? <div
+            {isToastVisible ? <div
                 style={{
                     position: 'fixed',
                     bottom: '30px',
@@ -92,4 +92,4 @@ function ToggleSpan() {
     );
 }
 
-export default ToggleSpan;
+export default ToggleToast;
