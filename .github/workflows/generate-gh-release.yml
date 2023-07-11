@@ -1,0 +1,32 @@
+name: Generate GitHub Release
+
+on:
+  push:
+    branches:
+      - main
+      - issue-011-auto-generate-gh-release
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: |
+          make i
+          make build
+          make package
+
+      - name: Detect version
+        id: detect_version
+        run: |
+          VERSION=$(cat package.json | jq -r '.version')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        tag_name: v${{ steps.detect_version.outputs.version }}
+        with:
+          files: build/chrome-mv3-prod.zip
