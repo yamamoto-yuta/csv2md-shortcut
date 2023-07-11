@@ -27,6 +27,6 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v1
-        tag_name: v${{ steps.detect_version.outputs.version }}
         with:
+          tag_name: v${{ steps.detect_version.outputs.version }}
           files: build/chrome-mv3-prod.zip
