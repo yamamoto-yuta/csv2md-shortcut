@@ -30,7 +30,17 @@
   },
   "manifest": {
     "permissions": [
-      "clipboardWrite"
-    ]
+      "activeTab",
+      "clipboardWrite",
+      "scripting"
+    ],
+    "commands": {
+      "test": {
+        "suggested_key": {
+          "default": "Alt+W"
+        },
+        "description": "Open the extension main popup"
+      }
+    }
   }
 }
