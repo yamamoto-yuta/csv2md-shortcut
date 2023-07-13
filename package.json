@@ -37,7 +37,8 @@
     "commands": {
       "test": {
         "suggested_key": {
-          "default": "Ctrl+J"
+          "windows": "Ctrl+J",
+          "mac": "Command+J"
         },
         "description": "Open the extension main popup"
       }

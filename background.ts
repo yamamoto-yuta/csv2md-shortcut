@@ -26,7 +26,8 @@ function reddenPage() {
     };
 
     const handleShortcuts = (e: KeyboardEvent) => {
-        if (e.ctrlKey && e.key === "j") {
+        console.log(e);
+        if (((e.ctrlKey && !e.metaKey) || (!e.ctrlKey && e.metaKey)) && e.key === "j") {
             const currentElement = document.activeElement;
             if (currentElement.tagName === "TEXTAREA") {
                 const textArea = currentElement as HTMLTextAreaElement;
