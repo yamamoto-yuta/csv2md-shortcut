@@ -27,6 +27,38 @@ const execEvent = () => {
         return csvLines.join('\n');
     };
 
+    const createToast = (): HTMLDivElement => {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.style.display = 'flex';
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.left = '20px';
+        toast.style.padding = '10px 20px';
+        toast.style.fontSize = '16px';
+        toast.style.fontFamily = 'sans-serif';
+        toast.style.backgroundColor = '#28a746';
+        toast.style.color = 'white';
+        toast.style.borderRadius = '5px';
+        toast.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, .5)';
+
+        const toastIcon = document.createElement('div');
+        toast.appendChild(toastIcon);
+        toastIcon.className = 'toast-icon'
+        toastIcon.style.fontSize = '30px';
+        toastIcon.style.margin = 'auto 16px auto 0';
+        toastIcon.style.padding = '0';
+        toastIcon.innerHTML = '&#10003;';
+
+        const toastMessage = document.createElement('div');
+        toast.appendChild(toastMessage);
+        toastMessage.className = 'toast-message';
+        toastMessage.style.margin = 'auto 0';
+        toastMessage.innerHTML = '<b>Finish conversion!</b><br />Ctrl + v to paste converted text.'
+
+        return toast;
+    };
+
     const currentElement = document.activeElement;
     if (currentElement.tagName === "TEXTAREA") {
         const textArea = currentElement as HTMLTextAreaElement;
@@ -49,6 +81,12 @@ const execEvent = () => {
 
         console.log(convertedText);
         navigator.clipboard.writeText(convertedText);
+
+        const toastElement = createToast();
+        document.body.appendChild(toastElement);
+        setTimeout(() => {
+            toastElement.remove();
+        }, 2000);
     };
 }
 
