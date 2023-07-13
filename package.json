@@ -35,12 +35,12 @@
       "scripting"
     ],
     "commands": {
-      "test": {
+      "convert": {
         "suggested_key": {
           "windows": "Ctrl+J",
           "mac": "Command+J"
         },
-        "description": "Open the extension main popup"
+        "description": "Convert CSV to Markdown Table"
       }
     }
   }

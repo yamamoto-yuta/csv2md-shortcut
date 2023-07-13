@@ -1,5 +1,7 @@
-function reddenPage() {
-    console.log("This is content script");
+console.log("Background script loaded");
+
+const execEvent = () => {
+    console.log("Executing event");
 
     const convertCSVToMarkdownTable = (csv: string): string => {
         const lines = csv.split('\n');
@@ -26,7 +28,7 @@ function reddenPage() {
     };
 
     const handleShortcuts = (e: KeyboardEvent) => {
-        console.log(e);
+        // console.log(e);
         if (((e.ctrlKey && !e.metaKey) || (!e.ctrlKey && e.metaKey)) && e.key === "j") {
             const currentElement = document.activeElement;
             if (currentElement.tagName === "TEXTAREA") {
@@ -48,9 +50,6 @@ function reddenPage() {
                     convertedText = "\n| col1 | col2 | col3 |\n| :--- | :--- | :--- |\n| | | |";
                 }
 
-                // alert("Set converted text on clipboard:\n\n" + convertedText);
-
-
                 console.log(convertedText);
                 navigator.clipboard.writeText(convertedText);
             };
@@ -65,7 +64,7 @@ chrome.commands.onCommand.addListener((command, tab) => {
     if (!tab.url.includes('chrome://')) {
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
-            function: reddenPage
+            func: execEvent
         });
     }
 });
