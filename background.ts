@@ -58,7 +58,8 @@ function reddenPage() {
     document.addEventListener("keydown", handleShortcuts);
 }
 
-chrome.action.onClicked.addListener((tab) => {
+chrome.commands.onCommand.addListener((command, tab) => {
+    console.log(command);
     if (!tab.url.includes('chrome://')) {
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
