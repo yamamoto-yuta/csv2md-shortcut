@@ -34,13 +34,14 @@ const execEvent = () => {
         toast.style.position = 'fixed';
         toast.style.bottom = '20px';
         toast.style.left = '20px';
-        toast.style.padding = '10px 20px';
+        toast.style.padding = '14px 20px';
         toast.style.fontSize = '16px';
         toast.style.fontFamily = 'sans-serif';
         toast.style.backgroundColor = '#28a746';
         toast.style.color = 'white';
         toast.style.borderRadius = '5px';
         toast.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, .5)';
+        toast.style.transition = 'opacity 1s';
 
         const toastIcon = document.createElement('div');
         toast.appendChild(toastIcon);
@@ -54,7 +55,32 @@ const execEvent = () => {
         toast.appendChild(toastMessage);
         toastMessage.className = 'toast-message';
         toastMessage.style.margin = 'auto 0';
-        toastMessage.innerHTML = '<b>Finish conversion!</b><br />Ctrl + v to paste converted text.'
+
+        const toastMessageTitle = document.createElement('div');
+        toastMessage.appendChild(toastMessageTitle);
+        toastMessageTitle.className = 'toast-message-title';
+        toastMessageTitle.style.fontWeight = 'bold';
+        toastMessageTitle.style.marginBottom = '4px';
+        toastMessageTitle.innerHTML = 'Finish conversion!';
+
+        const toastMessageContent = document.createElement('div');
+        toastMessage.appendChild(toastMessageContent);
+        toastMessageContent.className = 'toast-message-content';
+        toastMessageContent.innerHTML = '<span class="shortcut">Ctrl</span>/<span class="shortcut">Cmd</span>+<span class="shortcut">v</span> to paste converted text.';
+        for (let _s of toastMessageContent.querySelectorAll('.shortcut')) {
+            let shortcutSpan = _s as HTMLSpanElement;
+            shortcutSpan.style.display = 'inline-block';
+            shortcutSpan.style.padding = '2px 4px';
+            shortcutSpan.style.margin = '0 2px';
+            shortcutSpan.style.fontSize = '16px';
+            shortcutSpan.style.fontFamily = 'Arial';
+            shortcutSpan.style.lineHeight = '16px';
+            shortcutSpan.style.color = '#333';
+            shortcutSpan.style.backgroundColor = '#f7f7f7';
+            shortcutSpan.style.border = '1px solid #ccc';
+            shortcutSpan.style.borderRadius = '3px';
+            shortcutSpan.style.boxShadow = '0 1px 0 rgba(0,0,0,.2), 0 1px 0 rgba(255,255,255,.1) inset';
+        };
 
         return toast;
     };
@@ -84,6 +110,9 @@ const execEvent = () => {
 
         const toastElement = createToast();
         document.body.appendChild(toastElement);
+        setTimeout(() => {
+            toastElement.style.opacity = '0';
+        }, 1000);
         setTimeout(() => {
             toastElement.remove();
         }, 2000);
