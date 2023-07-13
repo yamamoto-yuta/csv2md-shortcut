@@ -37,7 +37,7 @@
     "commands": {
       "test": {
         "suggested_key": {
-          "default": "Alt+W"
+          "default": "Ctrl+J"
         },
         "description": "Open the extension main popup"
       }
