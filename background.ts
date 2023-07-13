@@ -27,36 +27,29 @@ const execEvent = () => {
         return csvLines.join('\n');
     };
 
-    const handleShortcuts = (e: KeyboardEvent) => {
-        // console.log(e);
-        if (((e.ctrlKey && !e.metaKey) || (!e.ctrlKey && e.metaKey)) && e.key === "j") {
-            const currentElement = document.activeElement;
-            if (currentElement.tagName === "TEXTAREA") {
-                const textArea = currentElement as HTMLTextAreaElement;
-                const textAreaValue = textArea.value;
-                const selectedStart = textArea.selectionStart;
-                const selectedEnd = textArea.selectionEnd;
-                const selectedText = textAreaValue.slice(selectedStart, selectedEnd);
-                console.log(selectedText);
+    const currentElement = document.activeElement;
+    if (currentElement.tagName === "TEXTAREA") {
+        const textArea = currentElement as HTMLTextAreaElement;
+        const textAreaValue = textArea.value;
+        const selectedStart = textArea.selectionStart;
+        const selectedEnd = textArea.selectionEnd;
+        const selectedText = textAreaValue.slice(selectedStart, selectedEnd);
+        console.log(selectedText);
 
-                const isCSV = selectedText.indexOf(',') > -1;
-                const isMarkdownTable = /\|[^|]+\|/g.test(selectedText);
-                let convertedText: string = "";
-                if (isCSV) {
-                    convertedText = convertCSVToMarkdownTable(selectedText);
-                } else if (isMarkdownTable) {
-                    convertedText = convertMarkdownTableToCSV(selectedText);
-                } else {
-                    convertedText = "\n| col1 | col2 | col3 |\n| :--- | :--- | :--- |\n| | | |";
-                }
+        const isCSV = selectedText.indexOf(',') > -1;
+        const isMarkdownTable = /\|[^|]+\|/g.test(selectedText);
+        let convertedText: string = "";
+        if (isCSV) {
+            convertedText = convertCSVToMarkdownTable(selectedText);
+        } else if (isMarkdownTable) {
+            convertedText = convertMarkdownTableToCSV(selectedText);
+        } else {
+            convertedText = "\n| col1 | col2 | col3 |\n| :--- | :--- | :--- |\n| | | |";
+        }
 
-                console.log(convertedText);
-                navigator.clipboard.writeText(convertedText);
-            };
-            document.removeEventListener("keydown", handleShortcuts);
-        };
+        console.log(convertedText);
+        navigator.clipboard.writeText(convertedText);
     };
-    document.addEventListener("keydown", handleShortcuts);
 }
 
 chrome.commands.onCommand.addListener((command, tab) => {
