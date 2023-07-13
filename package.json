@@ -37,7 +37,7 @@
     "commands": {
       "convert": {
         "suggested_key": {
-          "windows": "Ctrl+J",
+          "windows": "Alt+J",
           "mac": "Command+J"
         },
         "description": "Convert CSV to Markdown Table"
