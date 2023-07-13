@@ -54,6 +54,7 @@ function reddenPage() {
                 console.log(convertedText);
                 navigator.clipboard.writeText(convertedText);
             };
+            document.removeEventListener("keydown", handleShortcuts);
         };
     };
     document.addEventListener("keydown", handleShortcuts);
