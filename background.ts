@@ -29,7 +29,7 @@ const execEvent = () => {
 
     const createToast = (): HTMLDivElement => {
         const toast = document.createElement('div');
-        toast.className = 'toast';
+        toast.className = 'csv2md-toast';
         toast.style.display = 'flex';
         toast.style.position = 'fixed';
         toast.style.bottom = '20px';
@@ -42,10 +42,11 @@ const execEvent = () => {
         toast.style.borderRadius = '5px';
         toast.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, .5)';
         toast.style.transition = 'opacity 1s';
+        toast.style.zIndex = '9999';
 
         const toastIcon = document.createElement('div');
         toast.appendChild(toastIcon);
-        toastIcon.className = 'toast-icon'
+        toastIcon.className = 'csv2md-toast-icon'
         toastIcon.style.fontSize = '30px';
         toastIcon.style.margin = 'auto 16px auto 0';
         toastIcon.style.padding = '0';
@@ -53,19 +54,19 @@ const execEvent = () => {
 
         const toastMessage = document.createElement('div');
         toast.appendChild(toastMessage);
-        toastMessage.className = 'toast-message';
+        toastMessage.className = 'csv2md-toast-message';
         toastMessage.style.margin = 'auto 0';
 
         const toastMessageTitle = document.createElement('div');
         toastMessage.appendChild(toastMessageTitle);
-        toastMessageTitle.className = 'toast-message-title';
+        toastMessageTitle.className = 'csv2md-toast-message-title';
         toastMessageTitle.style.fontWeight = 'bold';
         toastMessageTitle.style.marginBottom = '4px';
         toastMessageTitle.innerHTML = 'Finish conversion!';
 
         const toastMessageContent = document.createElement('div');
         toastMessage.appendChild(toastMessageContent);
-        toastMessageContent.className = 'toast-message-content';
+        toastMessageContent.className = 'csv2md-toast-message-content';
         toastMessageContent.innerHTML = '<span class="shortcut">Ctrl</span>/<span class="shortcut">Cmd</span>+<span class="shortcut">v</span> to paste converted text.';
         for (let _s of toastMessageContent.querySelectorAll('.shortcut')) {
             let shortcutSpan = _s as HTMLSpanElement;
