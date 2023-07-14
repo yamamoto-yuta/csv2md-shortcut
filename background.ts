@@ -111,12 +111,12 @@ const execEvent = () => {
 
         const toastElement = createToast();
         document.body.appendChild(toastElement);
-        // setTimeout(() => {
-        //     toastElement.style.opacity = '0';
-        // }, 1000);
+        setTimeout(() => {
+            toastElement.style.opacity = '0';
+        }, 1000);
         setTimeout(() => {
             toastElement.remove();
-        }, 100000);
+        }, 2000);
     };
 }
 
