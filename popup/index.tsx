@@ -3,24 +3,24 @@ import { Center, Box, Image, Heading } from "@chakra-ui/react"
 import { useState } from "react"
 
 function IndexPopup() {
-    const [data, setData] = useState("")
+  const [data, setData] = useState("")
 
-    return (
-        <div
-            style={{
-                width: "600px",
-            }}
-        >
-            <Center bg="#276749">
-                <Heading color="white">How To Use</Heading>
-            </Center>
-            <Center>
-                <Box>
-                    <Image src={howToUseImage} alt="Dan Abramov" />
-                </Box>
-            </Center>
-        </div>
-    )
+  return (
+    <div
+      style={{
+        width: "600px",
+      }}
+    >
+      <Center bg="#276749">
+        <Heading color="white">How To Use</Heading>
+      </Center>
+      <Center>
+        <Box>
+          <Image src={howToUseImage} alt="Dan Abramov" />
+        </Box>
+      </Center>
+    </div>
+  )
 }
 
 export default IndexPopup
