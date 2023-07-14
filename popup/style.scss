@@ -1,0 +1,68 @@
+.popup {
+    width: 700px;
+    font-family: sans-serif;
+}
+
+.popup-title {
+    background-color: darkgreen;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+}
+
+.popup-content {
+    display: flex;
+}
+
+.column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.usage-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    height: 60px;
+    border-bottom: 1px solid lightgray;
+    font-size: 16px;
+}
+
+.usage-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px solid lightgray;
+    font-size: 16px;
+}
+
+.text-selected {
+    background-color: #3390ff;
+    color: white;
+}
+
+.shortcut-span {
+    display: inline-block;
+    padding: 2px 4px;
+    margin: 0 2px;
+    font-size: 16px;
+    font-family: Arial;
+    line-height: 16px;
+    color: #333;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 1px 0 rgba(255, 255, 255, .1) inset;
+}
+
+.clipboard-div {
+    background-color: lightgray;
+    padding: 10px;
+}
