@@ -30,7 +30,18 @@
   },
   "manifest": {
     "permissions": [
-      "clipboardWrite"
-    ]
+      "activeTab",
+      "clipboardWrite",
+      "scripting"
+    ],
+    "commands": {
+      "convert": {
+        "suggested_key": {
+          "windows": "Alt+J",
+          "mac": "Command+J"
+        },
+        "description": "Convert CSV to Markdown Table"
+      }
+    }
   }
 }
