@@ -24,7 +24,7 @@ const ConvertComponent = () => {
   )
 };
 
-const Usagecomponent = () => {
+const UsageComponent = () => {
   return (
     <div className="popup-content">
       <div className="column">
@@ -161,7 +161,7 @@ const IndexPopup = () => {
             </TabPanel>
             <TabPanel>
               <div>
-                <Usagecomponent />
+                <UsageComponent />
               </div>
             </TabPanel>
           </TabPanels>
