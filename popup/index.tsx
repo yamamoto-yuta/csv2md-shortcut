@@ -1,11 +1,28 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import { Button, ChakraProvider, Textarea } from '@chakra-ui/react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { HStack, StackDivider } from '@chakra-ui/react'
 import { Kbd } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
-import { QuestionIcon } from '@chakra-ui/icons'
+import { QuestionIcon, RepeatIcon } from '@chakra-ui/icons'
 import "./style.scss"
+
+const ConvertComponent = () => {
+  return (
+    <div>
+      <Textarea placeholder="Input CSV table or markdown table to convert..." />
+      <Button
+        leftIcon={<RepeatIcon />}
+        colorScheme='teal'
+        variant='solid'
+        width='100%'
+        marginTop={2}
+      >
+        Convert
+      </Button>
+    </div>
+  )
+};
 
 const Usagecomponent = () => {
   return (
@@ -130,10 +147,18 @@ const IndexPopup = () => {
         <Tabs isFitted variant='enclosed'>
           <TabList>
             <Tab>
+              <RepeatIcon color="green.500" />Convert
+            </Tab>
+            <Tab>
               <QuestionIcon color="blue.500" />Usage
             </Tab>
           </TabList>
           <TabPanels>
+            <TabPanel>
+              <div>
+                <ConvertComponent />
+              </div>
+            </TabPanel>
             <TabPanel>
               <div>
                 <Usagecomponent />
