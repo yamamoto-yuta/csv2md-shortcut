@@ -38,3 +38,8 @@
     background-color: #3390ff;
     color: white;
 }
+
+.convert-status {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
