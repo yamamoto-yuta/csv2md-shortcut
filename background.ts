@@ -1,6 +1,6 @@
 console.log("Background script loaded");
 
-export const executeConvert = (text: string = "") => {
+export const executeConvert = (execOnPopup: boolean = false, text: string = "") => {
     console.log("Executing event");
 
     // ================================================================================
@@ -60,7 +60,7 @@ export const executeConvert = (text: string = "") => {
     // Main
     // ================================================================================
 
-    if (text !== "") {
+    if (execOnPopup) {
         console.log(text);
 
         const textType = detectTextType(text);

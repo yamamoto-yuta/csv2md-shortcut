@@ -9,6 +9,7 @@ export const ConvertComponent = () => {
 
   const handleClick = () => {
     console.log(text);
+    executeConvert(true, text);
 
     const convertStatusElement = document.getElementsByClassName("convert-status")[0] as HTMLElement;
     convertStatusElement.style.opacity = '1';
