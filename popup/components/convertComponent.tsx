@@ -8,12 +8,12 @@ export const ConvertComponent = () => {
   const [text, setText] = useState<string>("");
 
   const handleClick = () => {
-    executeConvert(text);
+    console.log(text);
 
     const convertStatusElement = document.getElementsByClassName("convert-status")[0] as HTMLElement;
     convertStatusElement.style.opacity = '1';
     setTimeout(() => {
-      convertStatusElement.style.opacity = '0'
+      convertStatusElement.style.opacity = '0';
     }, 5000)
   };
 
