@@ -44,3 +44,6 @@ keys.json
 # lock files
 package-lock.json
 yarn.lock
+
+key.json
+token.json
